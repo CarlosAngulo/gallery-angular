@@ -1,0 +1,90 @@
+@import '~@angular/material/theming';
+@import 'style/palette';
+@include mat-core();
+$primary: mat-palette($md-yuxiblue);
+$accent:  mat-palette($md-yuxiviolet);
+$warn:  mat-palette($md-yuxipink, 600, 100, 800);
+$yuxi-app-theme: mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($yuxi-app-theme);
+
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+$custom-typography: mat-typography-config(
+	$font-family: 'Poppins',
+	$headline: mat-typography-level(32px, 48px, 700),
+	$body-1: mat-typography-level(16px, 24px, 500)
+  );
+
+// Override typography CSS classes (e.g., mat-h1, mat-display-1, mat-typography, etc.).
+@include mat-base-typography($custom-typography);
+
+// Override typography for a specific Angular Material components.
+@include mat-checkbox-typography($custom-typography);
+
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($custom-typography);
+
+// Override the typography in the core CSS.
+@include mat-core($custom-typography);
+
+  .material-icons {
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;  /* Preferred icon size */
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+  
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
+  
+	/* Support for Firefox. */
+	-moz-osx-font-smoothing: grayscale;
+  
+	/* Support for IE. */
+	font-feature-settings: 'liga';
+  }
+
+  /* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+.mat-sidenav {
+	background: map-get($primary, 300);
+	color: white;
+	min-height: 100vh;
+}
+
+.mat-sidenav-container{
+	background-color: transparent;
+}
+
+.mat-form-field.mat-full-width{
+	width: 100%;
+}
+
+.mat-button, .mat-raised-button, .mat-icon-button, .mat-fab, .mat-mini-fab{
+	font-family: 'Poppins', sans-serif;
+}

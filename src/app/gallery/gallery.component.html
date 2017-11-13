@@ -1,0 +1,9 @@
+<md-card *ngFor="let element of albums$ | async"  class="album-{{element.id}}">
+  <h1>Album {{element.id}}</h1>
+
+  <div class="photos" >
+	  <div class="photo" *ngFor="let image of element.photos">
+		  <img [src]="image.thumbnailUrl" alt="">
+	  </div>
+  </div>
+</md-card>
